@@ -29,8 +29,7 @@ def pub_record(pub_link):
 
   print title['content'].encode('utf-8')
   print authors
-  print date['content'].encode('utf-8')
-  print
+  print date['content'].encode('utf-8') + "\n"
   
 if __name__ == '__main__':
   names = open('name_list.csv')
