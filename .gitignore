@@ -1,1 +1,4 @@
 *.swp
+*.Ds_Store
+TASI_names
+scans
