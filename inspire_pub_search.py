@@ -22,17 +22,21 @@ def pub_record(pub_link):
   page        = urlfile.read()
   soup        = BeautifulSoup(page)
 
-  title       = soup.find(attrs={"name":"citation_title"})
+  title       = soup.findAll(attrs={"name":"citation_title"})
   author_list = soup.findAll(attrs={"name":"citation_author"})
   authors = [x['content'].encode('utf-8') for x in author_list]
-  date        = soup.find(attrs={"name":"citation_publication_date"})
+  date        = soup.findAll(attrs={"name":"citation_publication_date"})
 
-  print title['content'].encode('utf-8')
-  print authors
-  print date['content'].encode('utf-8') + "\n"
+  if (len(title)>0):
+    print title[0]['content'].encode('utf-8')
+  if (len(authors)>0):
+    print authors
+  if (len(date)>0):
+    print date[0]['content'].encode('utf-8')
+  print "\n"
   
 if __name__ == '__main__':
-  names = open('name_list.csv')
+  names = open('TASI_1997.csv')
   for name in names:
     print "Searching:  " + name.rstrip()
     print"---------------------------------"
